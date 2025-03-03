@@ -1,5 +1,3 @@
-const { constants } = require("fs/promises");
-
 let container = document.getElementById("container");
 
 function checklogin() {
