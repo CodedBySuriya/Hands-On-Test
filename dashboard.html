@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Basic -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Mobile Metas -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <!-- Site Metas -->
+    <meta name="keywords" content="" />
+    <link rel="shortcut icon" href="logo.png" />
+
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <link rel="shortcut icon" href="logo.png" />
+
+    <title>Dashboard</title>
+
+    <!-- bootstrap core css -->
+    <link rel="stylesheet" type="text/css" href="bootstrap.css" />
+
+    <!-- fonts style -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- font awesome style -->
+    <!-- <link href="font-awesome.min.css" rel="stylesheet" /> -->
+    <!-- nice select -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css"
+      integrity="sha256-mLBIhmBvigTFWPSCtvdu6a76T+3Xyt+K571hupeFLg4="
+      crossorigin="anonymous"
+    />
+
+    <!-- Custom styles for this template -->
+    <link href="dashboard.css" rel="stylesheet" />
+    <!-- responsive style -->
+    <link href="responsive.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div class="hero_area">
+      <!-- header section strats -->
+      <header class="header_section">
+        <div class="container-fluid">
+          <nav class="navbar navbar-expand-lg custom_nav-container">
+            <a class="navbar-brand" href="/">
+              <img
+                src="https://handson-4oly.onrender.com/logo.png"
+                alt=""
+                style="width: 100px; height: 100px"
+                ;
+              />
+              <span> Hands On </span>
+            </a>
+
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class=""> </span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/pitch-vid">Pitch Video</a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link" onclick="logout()">
+                    <i
+                      class="fa fa-user"
+                      aria-hidden="true"
+                      style="cursor: pointer"
+                    ></i>
+                    <span style="cursor: pointer"> LogOut</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </header>
+      <!-- end header section -->
+      <!-- slider section -->
+      <section class="slider_section">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-7 col-md-8 mx-auto">
+              <div class="detail-box">
+                <h1 id="title-welcome"></h1>
+                <h1>
+                  Enlight Your <br />
+                  Knowledge
+                </h1>
+                <p>
+                  Unlock the Potential of Knowledge <br />
+                  Unleash your potential with our innovative learning platform.
+                </p>
+                <p color="red" id="demo">
+                  Note :<br />
+                  This is a Prototype of Hands On <br />
+                  According to the prompt's intensity time will be adjusted
+                  accordingly because it gets supplies the prompt to two AIs
+                  (Phi and Gemini) and gets the response from both of them and
+                  then supplies them to ChatGPT for the final consent
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="find_container">
+            <div class="container">
+              <div class="row">
+                <div class="col">
+                  <form>
+                    <div class="form-row">
+                      <div class="form-group col-lg-3">
+                        <textarea
+                          class="form-control"
+                          id="inputPatientName"
+                          placeholder="Keywords"
+                        ></textarea>
+                      </div>
+
+                      <div class="form-group col-lg-3">
+                        <div class="btn-box">
+                          <button
+                            type="submit"
+                            class="btn"
+                            id="submit"
+                            onclick="getAItxt()"
+                          >
+                            Enlight
+                          </button>
+                          <div id="loading-dot" class="hidden"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="output-area"></div>
+        </div>
+      </section>
+      <!-- end slider section -->
+    </div>
+
+    <!-- jQery -->
+    <script src="jquery-3.4.1.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="bootstrap.js"></script>
+    <!-- nice select -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"
+      integrity="sha256-Zr3vByTlMGQhvMfgkQ5BtWRSKBGa2QlspKYJnkjZTmo="
+      crossorigin="anonymous"
+    ></script>
+    <!-- custom js -->
+    <!-- <script src="custom.js"></script> -->
+  </body>
+
+  <script src="dashboard.js"></script>
+</html>

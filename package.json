@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "@azure-rest/ai-inference": "^1.0.0-beta.5",
+    "@azure/core-auth": "^1.9.0",
+    "@google/generative-ai": "^0.22.0",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "firebase-admin": "^13.1.0",
+    "fs": "^0.0.1-security",
+    "openai": "^4.86.1",
+    "path": "^0.12.7",
+    "url": "^0.11.4"
+  }
+}

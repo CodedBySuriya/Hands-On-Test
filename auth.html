@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Auth</title>
+    <link rel="shortcut icon" href="logo.png" />
+
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/boxicons@latest/css/boxicons.min.css"
+    />
+    <link rel="stylesheet" href="auth.css" />
+    <script src="auth.js" defer></script>
+  </head>
+  <body>
+    <div id="container" class="container">
+      <!-- FORM SECTION -->
+      <div class="row">
+        <!-- SIGN UP -->
+        <div class="col align-items-center flex-col sign-up">
+          <div class="form-wrapper align-items-center">
+            <div class="form sign-up">
+              <div class="input-group">
+                <i class="bx bxs-user"></i>
+                <input
+                  type="text"
+                  id="username"
+                  autocomplete="off"
+                  autocorrect="off"
+                  spellcheck="false"
+                  placeholder="Username"
+                />
+              </div>
+              <div class="input-group">
+                <i class="bx bx-mail-send"></i>
+                <input
+                  type="email"
+                  id="email"
+                  autocomplete="off"
+                  autocorrect="off"
+                  spellcheck="false"
+                  placeholder="Email"
+                />
+              </div>
+              <div class="input-group">
+                <i class="bx bxs-lock-alt"></i>
+                <input
+                  type="password"
+                  id="password"
+                  autocomplete="new-password"
+                  autocorrect="off"
+                  spellcheck="false"
+                  placeholder="Password"
+                />
+              </div>
+              <div class="input-group">
+                <i class="bx bxs-lock-alt"></i>
+                <select id="classOpt" name="classOpt">
+                  <option value="Select Class">Select Class</option>
+                  <option value="6">VI</option>
+                  <option value="7">VII</option>
+                  <option value="8">VIII</option>
+                  <option value="9">IX</option>
+                  <option value="10">X</option>
+                  <option value="11">XI</option>
+                  <option value="12">XII</option>
+                  <option value="NEET-Aspirant">NEET-Aspirant</option>
+                  <option value="JEE-Aspirant">JEE-Aspirant</option>
+                </select>
+              </div>
+
+              <button onclick="signAct()">Sign up</button>
+              <p>
+                <span
+                  class="create-acc"
+                  onclick="window.location.href = 'https://handson-4oly.onrender.com'"
+                  style="cursor: pointer"
+                >
+                  Back To Home
+                </span>
+              </p>
+              <p>
+                <span class="create-acc"> Already have an account? </span>
+                <b onclick="toggle()" class="create-acc"> Sign in here </b>
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- END SIGN UP -->
+        <!-- SIGN IN -->
+        <div
+          class="col align-items-center flex-col sign-in"
+          autoComplete="false"
+        >
+          <div class="form-wrapper align-items-center">
+            <div class="form sign-in">
+              <div class="input-group">
+                <i class="bx bxs-user"></i>
+                <input type="text" id="username-login" placeholder="Username" />
+              </div>
+              <div class="input-group">
+                <i class="bx bxs-lock-alt"></i>
+                <input
+                  type="password"
+                  id="password-login"
+                  placeholder="Password"
+                />
+              </div>
+              <button onclick="loginAuth()">Sign in</button>
+              <p>
+                <span
+                  class="create-acc"
+                  onclick="window.location.href = 'https://handson-4oly.onrender.com'"
+                  style="cursor: pointer"
+                >
+                  Back To Home
+                </span>
+              </p>
+              <p>
+                <span class="create-acc"> Don't have an account? </span>
+                <b onclick="toggle()" class="create-acc"> Sign up here </b>
+              </p>
+            </div>
+          </div>
+          <div class="form-wrapper"></div>
+        </div>
+        <!-- END SIGN IN -->
+      </div>
+      <!-- END FORM SECTION -->
+      <!-- CONTENT SECTION -->
+      <div class="row content-row">
+        <!-- SIGN IN CONTENT -->
+        <div class="col align-items-center flex-col">
+          <div class="text sign-in">
+            <h2>Welcome</h2>
+          </div>
+          <div class="img sign-in"></div>
+        </div>
+        <!-- END SIGN IN CONTENT -->
+        <!-- SIGN UP CONTENT -->
+        <div class="col align-items-center flex-col">
+          <div class="img sign-up"></div>
+          <div class="text sign-up">
+            <h2>Join with us</h2>
+          </div>
+        </div>
+        <!-- END SIGN UP CONTENT -->
+      </div>
+      <!-- END CONTENT SECTION -->
+    </div>
+  </body>
+</html>

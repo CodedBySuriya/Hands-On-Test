@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multi-Select Dropdown</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+
+      .dropdown {
+        position: relative;
+        width: 250px;
+      }
+
+      .dropdown-toggle {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        cursor: pointer;
+        background: #fff;
+      }
+
+      .dropdown-menu {
+        position: absolute;
+        width: 100%;
+        border: 1px solid #ccc;
+        background: #fff;
+        display: none;
+        max-height: 150px;
+        overflow-y: auto;
+      }
+
+      .dropdown-menu div {
+        padding: 8px;
+        cursor: pointer;
+      }
+
+      .dropdown-menu div:hover {
+        background: #f0f0f0;
+      }
+
+      .selected-options {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+        padding: 5px;
+      }
+
+      .selected-item {
+        background: #007bff;
+        color: white;
+        padding: 5px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const dropdownToggle = document.querySelector(".dropdown-toggle");
+        const dropdownMenu = document.querySelector(".dropdown-menu");
+        const selectedOptions = document.querySelector(".selected-options");
+
+        let selectedValues = [];
+
+        // Toggle dropdown menu
+        dropdownToggle.addEventListener("click", () => {
+          dropdownMenu.style.display =
+            dropdownMenu.style.display === "block" ? "none" : "block";
+        });
+
+        // Handle option selection
+        dropdownMenu.addEventListener("click", (event) => {
+          if (event.target.dataset.value) {
+            const value = event.target.dataset.value;
+
+            if (!selectedValues.includes(value)) {
+              selectedValues.push(value);
+              updateSelectedOptions();
+            }
+          }
+        });
+
+        // Update UI with selected options
+        function updateSelectedOptions() {
+          selectedOptions.innerHTML = "";
+          selectedValues.forEach((value) => {
+            const span = document.createElement("span");
+            span.textContent = value;
+            span.classList.add("selected-item");
+            span.addEventListener("click", () => removeSelectedOption(value));
+            selectedOptions.appendChild(span);
+          });
+        }
+
+        // Remove selected option
+        function removeSelectedOption(value) {
+          selectedValues = selectedValues.filter((item) => item !== value);
+          updateSelectedOptions();
+        }
+
+        // Hide dropdown when clicking outside
+        document.addEventListener("click", (event) => {
+          if (
+            !dropdownToggle.contains(event.target) &&
+            !dropdownMenu.contains(event.target)
+          ) {
+            dropdownMenu.style.display = "none";
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
