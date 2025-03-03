@@ -23,7 +23,7 @@ async function loginAuth() {
 
   const requestBody = JSON.stringify({ password, username });
 
-  fetch("https://handson-4oly.onrender.com/login-auth", {
+  fetch("https://hands-on-test.onrender.com/login-auth", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -63,7 +63,7 @@ async function signAct() {
     alert("fill all the fields");
   } else {
     const requestBody = JSON.stringify({ password, username, classOpt, email }); // ✅ Ensure it's JSON
-    fetch("https://handson-4oly.onrender.com/sign-act", {
+    fetch("https://hands-on-test.onrender.com/sign-act", {
       method: "POST",
       headers: {
         "Content-Type": "application/json", // ✅ Ensure it's JSON

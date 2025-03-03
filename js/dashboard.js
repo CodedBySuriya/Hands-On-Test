@@ -9,7 +9,7 @@ window.addEventListener("load", checklogin);
 function logout() {
   localStorage.removeItem("loggedIn");
   localStorage.removeItem("username");
-  location.replace("https://handson-4oly.onrender.com/auth");
+  location.replace("https://hands-on-test.onrender.com/auth");
 }
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -42,7 +42,7 @@ function getAItxt() {
   const prompt = document.getElementById("inputPatientName").value;
   console.log(prompt);
 
-  fetch("https://handson-4oly.onrender.com/get-ai-txt", {
+  fetch("https://hands-on-test.onrender.com/get-ai-txt", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
