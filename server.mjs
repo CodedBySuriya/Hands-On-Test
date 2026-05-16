@@ -11,10 +11,10 @@ import { AzureKeyCredential } from "@azure/core-auth";
 const serviceAccount = JSON.parse(
   await readFile(
     new URL(
-      "./js/hands-on-a642f-firebase-adminsdk-fbsvc-cd4d7e3b24.json",
-      import.meta.url
-    )
-  )
+      "./js/hands-on-a642f-firebase-adminsdk-fbsvc-ec94d31143.json",
+      import.meta.url,
+    ),
+  ),
 );
 
 dotnev.config();
@@ -167,7 +167,7 @@ app.post("/login-auth", async (req, res) => {
 
     const user = users
       ? Object.values(users).find(
-          (user) => user.username === username && user.password === password
+          (user) => user.username === username && user.password === password,
         )
       : null;
 
@@ -199,17 +199,7 @@ app.listen(port, () => {
 });
 
 // -------------------------------------------------------------------------------------------------------------
-async function geminiAI(userPrompt) {
-  const genAI = new GoogleGenerativeAI(
-    "AIzaSyCi2IcrKghEr-i5KA_865o4G5ho-CZct84"
-  );
-  const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
-  const prompt = `${userPrompt}`;
 
-  const result = await model.generateContent(prompt);
-  // console.log(result.response.text());
-  return result.response.text();
-}
 // ------------------------------------------------------------------------------------------------------------
 
 // ------------------------------------------------------------------------------------------------------------
@@ -221,7 +211,7 @@ async function Phitxt(userPrompt) {
 
   if (!token) {
     throw new Error(
-      "GitHub Token is missing. Please set GITHUB_TOKEN in .env file."
+      "GitHub Token is missing. Please set GITHUB_TOKEN in .env file.",
     );
   }
 
@@ -253,7 +243,7 @@ async function finalAI(userPrompt, responseGemini, responsephi) {
 
     if (!token || !endpoint) {
       throw new Error(
-        "Missing Azure OpenAI credentials. Check your .env file."
+        "Missing Azure OpenAI credentials. Check your .env file.",
       );
     }
 
@@ -266,7 +256,6 @@ async function finalAI(userPrompt, responseGemini, responsephi) {
           {
             role: "user",
             content: `Which of the following best suits for the prompt ${userPrompt}
-          ${responseGemini}
            ${responsephi}
            pls do not add any of your text or other txt just the response and i strictly repeat do not add any text `,
           },
@@ -293,19 +282,14 @@ async function finalAI(userPrompt, responseGemini, responsephi) {
 app.post("/get-ai-txt", async (req, res) => {
   const { userPrompt } = req.body;
   try {
-    const responseGemini = await geminiAI(userPrompt);
     const responsephi = await Phitxt(userPrompt);
-    const responseFinal = await finalAI(
-      userPrompt,
-      responseGemini,
-      responsephi
-    );
+    const responseFinal = await finalAI(userPrompt, responsephi);
     // console.log(`GEMINI RESPONSE: ${responseGemini}`);
     // console.log(`PHI RESPONSE: ${responsephi}`);
     console.log(`FINAL RESPONSE: ${responseFinal}`);
     let formattedResponse = responseFinal.replace(
       /\*\*(.*?)\*\*/g,
-      "<b>$1</b>"
+      "<b>$1</b>",
     );
 
     formattedResponse = formattedResponse.replace(/\n/g, "<br><br>");
