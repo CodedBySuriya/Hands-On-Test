@@ -11,9 +11,11 @@ import admin from "firebase-admin";
 import fs from "fs";
 
 const serviceAccount = JSON.parse(
-  fs.readFileSync(
-    "./js/hands-on-a642f-firebase-adminsdk-fbsvc-a30a3d889e.json",
-    "utf8",
+  await readFile(
+    new URL(
+      "./js/hands-on-a642f-firebase-adminsdk-fbsvc-a30a3d889e.json",
+      import.meta.url,
+    ),
   ),
 );
 
