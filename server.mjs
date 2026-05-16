@@ -16,6 +16,10 @@ admin.initializeApp({
   databaseURL: "https://hands-on-a642f-default-rtdb.firebaseio.com",
 });
 
+console.log(serviceAccount.project_id);
+console.log(serviceAccount.client_email);
+console.log(serviceAccount.private_key?.slice(0, 40));
+
 const db = admin.database();
 export { db };
 
