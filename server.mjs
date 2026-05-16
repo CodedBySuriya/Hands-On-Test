@@ -8,8 +8,14 @@ import dotnev from "dotenv";
 import ModelClient, { isUnexpected } from "@azure-rest/ai-inference";
 import { AzureKeyCredential } from "@azure/core-auth";
 import admin from "firebase-admin";
+import fs from "fs";
 
-import serviceAccount from "./js/hands-on-a642f-firebase-adminsdk-fbsvc-a30a3d889e.json" with { type: "json" };
+const serviceAccount = JSON.parse(
+  fs.readFileSync(
+    "./js/hands-on-a642f-firebase-adminsdk-fbsvc-a30a3d889e.json",
+    "utf8",
+  ),
+);
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
