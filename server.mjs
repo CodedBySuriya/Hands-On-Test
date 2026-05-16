@@ -11,7 +11,7 @@ import { AzureKeyCredential } from "@azure/core-auth";
 const serviceAccount = JSON.parse(
   await readFile(
     new URL(
-      "./js/hands-on-a642f-firebase-adminsdk-fbsvc-ec94d31143.json",
+      "./js/hands-on-a642f-firebase-adminsdk-fbsvc-a30a3d889e.json",
       import.meta.url,
     ),
   ),
