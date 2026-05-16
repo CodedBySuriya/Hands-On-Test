@@ -8,14 +8,7 @@ import { OpenAI } from "openai";
 import dotnev from "dotenv";
 import ModelClient, { isUnexpected } from "@azure-rest/ai-inference";
 import { AzureKeyCredential } from "@azure/core-auth";
-const serviceAccount = JSON.parse(
-  await readFile(
-    new URL(
-      "./js/hands-on-a642f-firebase-adminsdk-fbsvc-a30a3d889e.json",
-      import.meta.url,
-    ),
-  ),
-);
+const serviceAccount = require("./js/hands-on-a642f-firebase-adminsdk-fbsvc-a30a3d889e.json");
 
 dotnev.config();
 
