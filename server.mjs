@@ -1,16 +1,15 @@
 import express from "express";
 import path from "path";
 import { fileURLToPath } from "url";
-import admin from "firebase-admin";
 import { readFile } from "fs/promises";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { OpenAI } from "openai";
 import dotnev from "dotenv";
 import ModelClient, { isUnexpected } from "@azure-rest/ai-inference";
 import { AzureKeyCredential } from "@azure/core-auth";
-const serviceAccount = require("./js/hands-on-a642f-firebase-adminsdk-fbsvc-a30a3d889e.json");
+import admin from "firebase-admin";
 
-dotnev.config();
+import serviceAccount from "./js/hands-on-a642f-firebase-adminsdk-fbsvc-a30a3d889e.json" with { type: "json" };
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
